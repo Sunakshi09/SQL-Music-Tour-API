@@ -43,8 +43,8 @@ module.exports = {
           end_time: "2023-10-31T12:00:00",
         },
         {
-          name: "Yawning Man",
-          genre: "Desert Rock",
+          name: "The Beatles",
+          genre: "Rock",
           available_start_time: "2023-05-01T12:00:00",
           end_time: "2023-09-30T12:00:00",
         },
