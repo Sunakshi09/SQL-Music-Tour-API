@@ -8,20 +8,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Stage, StageEvent, MeetGreet, SetTime }) {
-      // stages
+      // define association here
       Event.belongsToMany(Stage, {
         foreignKey: "event_id",
         as: "stages",
         through: StageEvent,
       });
 
-      // meet and greets
       Event.hasMany(MeetGreet, {
         foreignKey: "event_id",
         as: "meet_greets",
       });
 
-      // set times
       Event.hasMany(SetTime, {
         foreignKey: "event_id",
         as: "set_times",
@@ -30,27 +28,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Event.init(
     {
-      event_id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-      start_time: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-      end_time: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
+      event_id: DataTypes.INTEGER,
+      name: DataTypes.STRING,
+      date: DataTypes.DATE,
+      start_time: DataTypes.DATE,
+      end_time: DataTypes.DATE,
     },
     {
       sequelize,
